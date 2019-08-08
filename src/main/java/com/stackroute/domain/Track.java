@@ -6,34 +6,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+//annotation class
 
 
-/**Entity annotated class will have the ability to represent objects in the database*/
 @Document(collection = "tracks")
 
-/**With @Data, Lombok will generate getter and setter methods, toString methods, Equal & Hashcode methods*/
+//used for docker.BY this it will generate getter and setter method
 @Data
 
-/**@NoArgsConstructor will add constructor with no arguments*/
+//add constructor with no arguments
 @NoArgsConstructor
 
-/**@AllArgsConstructor will add constructor with all properties in the class*/
+// will add constructor with all properties in the class*/
 @AllArgsConstructor
 
 @Builder
 
 public class Track {
-//    public Track() {
-//
-//    }
-//
-//    public Track(int id, String trackName, String comments) {
-//        this.id = id;
-//        this.trackName = trackName;
-//        this.comments = comments;
-//    }
 
-    /**Id annotation make id variable as Primary key*/
+
+    //Id annotation make id variable as Primary key
     @Id
     private int id;
     private String trackName;

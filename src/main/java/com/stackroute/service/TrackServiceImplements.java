@@ -32,10 +32,10 @@ public class TrackServiceImplements implements TrackService {
      */
     @Override
     public Track saveTrack(Track track) throws TrackAlreadyExistsException {
-        /**Throw TrackAlreadyExistsException if track already exists*/
-        if (trackRepository.existsById(track.getId())) {
-            throw new TrackAlreadyExistsException();
-        }
+        //Throw TrackAlreadyExistsException if track already exists
+//        if (trackRepository.existsById(track.getid())) {
+//            throw new TrackAlreadyExistsException();
+//        }
         Track savedTrack = trackRepository.save(track);
         if (savedTrack == null) {
             throw new TrackAlreadyExistsException();
@@ -43,9 +43,8 @@ public class TrackServiceImplements implements TrackService {
         return savedTrack;
     }
 
-    /**
-     * Implementation of getTrackById method
-     */
+
+     //throwing track not found exception
     @Override
     public Track getTrackById(int id) throws TrackNotFoundException {
         /**Throw TrackNotFoundException if track we want to get is not found*/
@@ -95,7 +94,7 @@ public class TrackServiceImplements implements TrackService {
         /**Throw TrackNotFoundException if track we want to update is not found*/
         if (trackRepository.existsById(id)) {
             Track getTrack = trackRepository.findById(id).get();
-            getTrack.setComments(track.getComments());
+//            getTrack.setComments(track.getComments());
             return trackRepository.save(getTrack);
         } else {
             throw new TrackNotFoundException("Track you want to update is not found");
